@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Job
+metadata:
+  name: pttg-ip-smoke-tests
+  labels:
+    version: {{.VERSION}}
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      containers:
+        - name: pttg-ip-smoke-tests
+          image: quay.io/ukhomeofficedigital/pttg-ip-smoke-tests:{{.VERSION}}
+        restartPolicy: Never
