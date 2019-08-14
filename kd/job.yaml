@@ -4,7 +4,7 @@ kind: Job
 metadata:
   name: pttg-ip-smoke-tests
   labels:
-    version: {{.VERSION}}
+    version: latest
 spec:
   backoffLimit: 0
   template:
