@@ -14,9 +14,9 @@ spec:
         image: quay.io/ukhomeofficedigital/pttg-ip-smoke-tests:{{.VERSION}}
         resources:
           limits:
-            memory: "100Mi"
-            cpu: 100m
+            cpu: 1600m
+            memory: 612Mi
           requests:
-            memory: "50Mi"
             cpu: 100m
+            memory: 484Mi
       restartPolicy: Never
