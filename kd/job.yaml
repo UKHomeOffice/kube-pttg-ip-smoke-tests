@@ -15,8 +15,8 @@ spec:
         resources:
           limits:
             cpu: 1600m
-            memory: 612Mi
+            memory: 1224Mi
           requests:
             cpu: 100m
-            memory: 484Mi
+            memory: 968Mi
       restartPolicy: Never
