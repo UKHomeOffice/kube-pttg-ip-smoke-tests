@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: pttg-ip-smoke-tests
-        image: quay.io/ukhomeofficedigital/pttg-ip-smoke-tests:{{.VERSION}}
+        image: quay.io/ukhomeofficedigital/pttg-ip-smoke-tests:latest
         resources:
           limits:
             cpu: 1600m
