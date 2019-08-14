@@ -12,4 +12,11 @@ spec:
       containers:
       - name: pttg-ip-smoke-tests
         image: quay.io/ukhomeofficedigital/pttg-ip-smoke-tests:{{.VERSION}}
+        resources:
+          limits:
+            memory: "100Mi"
+            cpu: 100m
+          requests:
+            memory: "50Mi"
+            cpu: 100m
       restartPolicy: Never
