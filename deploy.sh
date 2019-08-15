@@ -33,4 +33,4 @@ echo
 
 cd kd
 
-kd --insecure-skip-tls-verify -f job.yaml
+kd --insecure-skip-tls-verify -f job.yaml --replace
