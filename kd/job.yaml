@@ -4,14 +4,14 @@ kind: Job
 metadata:
   name: pttg-ip-smoke-tests
   labels:
-    version: {{.VERSION}}
+    version: latest
 spec:
   backoffLimit: 0
   template:
     spec:
       containers:
       - name: pttg-ip-smoke-tests
-        image: quay.io/ukhomeofficedigital/pttg-ip-smoke-tests:{{.VERSION}}
+        image: quay.io/ukhomeofficedigital/pttg-ip-smoke-tests:latest
         resources:
           limits:
             cpu: 1600m
