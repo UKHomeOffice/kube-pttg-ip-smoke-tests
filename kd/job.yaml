@@ -27,5 +27,4 @@ spec:
               secretKeyRef:
                 name: pttg-ip-api-service-secrets
                 key: pttg_ip_smoke_tests
-
       restartPolicy: Never
