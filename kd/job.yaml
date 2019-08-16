@@ -20,6 +20,11 @@ spec:
             cpu: 100m
             memory: 968Mi
         env:
-          name: IP_API_ROOT_URL
-          value: https://pttg-ip-api.{{.KUBE_NAMESPACE}}.svc.cluster.local
+          - name: IP_API_ROOT_URL
+            value: https://pttg-ip-api.{{.KUBE_NAMESPACE}}.svc.cluster.local
+          - name: IP_API_AUTH
+            valueFrom:
+              secretKeyRef:
+                name: pttg-ip-api-service-secrets
+                key: pttg_ip_smoke_tests
       restartPolicy: Never
