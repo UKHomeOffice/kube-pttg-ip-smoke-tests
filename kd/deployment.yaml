@@ -41,3 +41,6 @@ spec:
                 secretKeyRef:
                   name: pttg-ip-api-service-secrets
                   key: pttg_ip_smoke_tests
+          ports:
+            - name: http
+              containerPort: 8080
