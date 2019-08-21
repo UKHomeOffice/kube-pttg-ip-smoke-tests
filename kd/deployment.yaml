@@ -76,6 +76,10 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+          volumeMounts:
+            - mountPath: /etc/keystore
+              name: keystore
+              readOnly: true
       volumes:
         - name: keystore
           emptyDir:
