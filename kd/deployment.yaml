@@ -71,6 +71,8 @@ spec:
                   key: pttg_ip_smoke_tests
             - name: JAVA_OPTS
               value: '-Xms150m -Xmx250m -Djavax.net.ssl.trustStore=/etc/keystore/truststore.jks'
+            - name: JDK_TRUST_FILE
+              value: '/etc/keystore/truststore.jks'
           ports:
             - name: http
               containerPort: 8080
