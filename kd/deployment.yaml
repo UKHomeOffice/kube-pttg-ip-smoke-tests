@@ -23,6 +23,34 @@ spec:
     spec:
       imagePullSecrets:
         - name: registrykey
+      initContainers:
+        - name: truststore
+          image: quay.io/ukhomeofficedigital/cfssl-sidekick-jks:v0.0.7
+          securityContext:
+            runAsNonRoot: true
+            capabilities:
+              drop:
+                - SETUID
+                - SETGID
+          args:
+            - --certs=/certs
+            - --command=/usr/bin/create-keystore.sh /certs/tls.pem /certs/tls-key.pem /etc/ssl/certs/acp-root.crt
+            - --domain=pttg-ip-smoke-tests.${KUBE_NAMESPACE}.svc.cluster.local
+            - --domain=localhost
+            - --onetime=true
+          env:
+          - name: KUBE_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          volumeMounts:
+          - name: certs
+            mountPath: /certs
+          - name: keystore
+            mountPath: /etc/keystore
+          - name: bundle
+            mountPath: /etc/ssl/certs
+            readOnly: true
       containers:
         - name: pttg-ip-smoke-tests
           image: quay.io/ukhomeofficedigital/pttg-ip-smoke-tests:{{.VERSION}}
@@ -44,3 +72,13 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+      volumes:
+        - name: keystore
+          emptyDir:
+            medium: "Memory"
+        - name: certs
+          emptyDir:
+            medium: "Memory"
+        - name: bundle
+          configMap:
+            name: bundle
