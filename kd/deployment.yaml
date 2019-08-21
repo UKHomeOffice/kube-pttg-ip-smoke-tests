@@ -35,7 +35,7 @@ spec:
               memory: 968Mi
           env:
             - name: IPS_ENDPOINT
-              value: https://pttg-ip-api.{{.KUBE_NAMESPACE}}.svc.cluster.local:8080/smoketests
+              value: https://pttg-ip-api.{{.KUBE_NAMESPACE}}.svc.cluster.local/smoketests
             - name: IPS_BASICAUTH
               valueFrom:
                 secretKeyRef:
