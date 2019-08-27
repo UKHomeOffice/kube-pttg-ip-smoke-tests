@@ -63,7 +63,7 @@ spec:
               memory: 968Mi
           env:
             - name: IPS_ENDPOINT
-              value: https://pttg-ip-api.{{.KUBE_NAMESPACE}}.svc.cluster.local/smoketests
+              value: https://pttg-ip-api.{{.KUBE_NAMESPACE}}.svc.cluster.local/incomeproving/v3/individual/financialstatus
             - name: IPS_BASICAUTH
               valueFrom:
                 secretKeyRef:
